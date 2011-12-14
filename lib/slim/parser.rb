@@ -204,7 +204,7 @@ module Slim
         @stacks << block
       when /\A(\w+):\s*\Z/
         # Embedded template detected. It is treated as block.
-        @stacks.last << [:slim, :embedded, $1, parse_text_block]
+        @stacks.last << [:embed, $1, parse_text_block]
       when /\Adoctype\s+/i
         # Found doctype declaration
         @stacks.last << [:html, :doctype, $'.strip]

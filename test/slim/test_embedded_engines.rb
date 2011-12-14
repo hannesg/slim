@@ -28,9 +28,9 @@ markdown:
 }
     assert_html "<h1 id=\"header\">Header</h1>\n<p>Hello from Markdown!</p>\n\n<p>3</p>\n\n<ul>\n  <li>one</li>\n  <li>two</li>\n</ul>\n", source
 
-    Slim::EmbeddedEngine.default_options[:markdown] = {:auto_ids => false}
+    Temple::Filters::EmbeddedEngine.engine_options( :markdown, {:auto_ids => false} )
     assert_html "<h1>Header</h1>\n<p>Hello from Markdown!</p>\n\n<p>3</p>\n\n<ul>\n  <li>one</li>\n  <li>two</li>\n</ul>\n", source
-    Slim::EmbeddedEngine.default_options[:markdown] = nil
+    Temple::Filters::EmbeddedEngine.engine_options( :markdown, {:auto_ids => true} )
 
     assert_html "<h1 id=\"header\">Header</h1>\n<p>Hello from Markdown!</p>\n\n<p>3</p>\n\n<ul>\n  <li>one</li>\n  <li>two</li>\n</ul>\n", source
   end

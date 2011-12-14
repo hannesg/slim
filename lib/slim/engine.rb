@@ -55,11 +55,11 @@ module Slim
     # `set_default_options` when you have to override some default settings.
     #
     use Slim::Parser, :file, :tabsize, :encoding, :default_tag
-    use Slim::EmbeddedEngine, :enable_engines, :disable_engines, :pretty
     use Slim::Interpolation
     use Slim::Sections, :sections, :dictionary, :dictionary_access
     use Slim::EndInserter
     use Slim::Compiler, :disable_capture, :attr_delimiter
+    use Slim::EmbeddedEngine, :enable_engines, :disable_engines, :pretty, :engines
     use Temple::HTML::AttributeMerger, :attr_delimiter, :sort_attrs
     use Temple::HTML::Pretty, :format, :attr_wrapper, :pretty
     filter :Escapable, :use_html_safe, :disable_escape
