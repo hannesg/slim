@@ -459,4 +459,12 @@ html: body: .content
 }
     assert_html %{<html><body><div class=\"content\">Text</div></body></html>}, source
   end
+
+  def test_eval_attributes_once
+    source = %q{
+input[value=succ_x]
+}
+    assert_html %{<input value="1" />}, source
+  end
+
 end
